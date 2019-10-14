@@ -1,17 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/static/TripInc.svg';
+import '../assets/styles/components/Header.scss';
 
 const Header = () => {
   return (
     <header className='header'>
       <Link to='/'>
-        <img className='header__img' src='' alt='Platzi Video' />
+        <img className='header__img' src={logo} alt='Trip Inc' />
       </Link>
 
       <div className='header__menu'>
         <div className='header__menu--profile'>
-          <img src={logo} alt='Trip-inc logo' />
+          <img src='' alt='' />
           <p>Perfil</p>
         </div>
         <ul>
