@@ -5,9 +5,20 @@
   display: flex;
   height: 100px;
   justify-content: space-between;
-  top: 0px;
+  top: 0;
   width: 100%;
 }
+
+.header a {
+  text-decoration: none;
+}
+
+.header__text {
+   font-size: 35px;
+   margin-left: 15px;
+   font-family: Zhi Mang Xing, cursive;
+   color: white;
+ }
 
 .header__img {
   margin-left: 30px;
@@ -15,6 +26,8 @@
 }
 
 .header__menu {
+  display: flex;
+  justify-content: space-around;
   margin-right: 30px;
 }
 
@@ -49,6 +62,12 @@
   align-items: center;
   display: flex;
   cursor: pointer;
+  margin: 0 15px;
+  color: white;
+}
+
+.header__menu--profile a{
+  color: white;
 }
 
 .header__menu--profile img {

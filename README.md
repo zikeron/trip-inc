@@ -2,7 +2,7 @@ This project is being developed to successfully accredit the  Platzi Javascript 
 
 ## Don't forget 
 
-### `npm run install`
+### `npm install`
 
 ## Available Scripts
 
