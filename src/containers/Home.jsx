@@ -3,7 +3,6 @@ import Parallax from 'react-springy-parallax';
 import parallax1 from '../assets/static/asia-2181888_1920.jpg';
 import parallax2 from '../assets/static/navigation-1048294_1920.jpg';
 import parallax3 from '../assets/static/city-3126072_1920.jpg';
-import parallax4 from '../assets/static/car-2247146_1920.jpg';
 
 class Home extends Component {
   render() {
@@ -18,9 +17,30 @@ class Home extends Component {
     };
     return (
       <Parallax ref='parallax' pages={3}>
-        <Parallax.Layer offset={0} speed={1} style={{ backgroundImage: `url(${parallax1})` }} />
-        <Parallax.Layer offset={1} speed={1} style={{ backgroundImage: `url(${parallax2})` }} />
-        <Parallax.Layer offset={2} speed={1} style={{ backgroundImage: `url(${parallax3})` }} />
+        <Parallax.Layer
+          offset={0}
+          speed={1}
+          style={
+            {
+              backgroundImage: `url(${parallax1})`,
+            }
+          } />
+        <Parallax.Layer
+          offset={1}
+          speed={1}
+          style={
+            {
+              backgroundImage: `url(${parallax2})`
+            }
+          } />
+        <Parallax.Layer
+          offset={2}
+          speed={1}
+          style={
+            {
+              backgroundImage: `url(${parallax3})`
+            }
+          }/>
         <Parallax.Layer
           offset={0}
           speed={0.5}

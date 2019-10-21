@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import { Alert, Col, Form, FormGroup, Input, Row } from 'reactstrap';
 import { connect } from 'react-redux';
-import firebase from '../initializers/firebase';
+import { Alert, Col, Row } from 'reactstrap';
+import fireApp from '../initializers/firebase';
 import Map from './Map';
 import { setName } from '../reducers';
 
 class Main extends Component {
   componentDidMount() {
-    const databaseRef = firebase.database().ref().child('users').child('dP0tKcE2UuR1vM6bZUtI');
+    const databaseRef = fireApp.database().ref().child('users').child('name');
     databaseRef.on('value', (snapshot) => {
+      console.log(snapshot.val());
       this.props.setName(snapshot.val());
     });
   }
