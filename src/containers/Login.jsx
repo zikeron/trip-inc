@@ -12,7 +12,7 @@ const Login = (props) => {
         <img src={userImg} alt='' />
         <div>
           <h2>Inicia sesión como usuario</h2>
-          <Link to='/login-users'>
+          <Link to='/login-user'>
             <p>Haz click aquí</p>
           </Link>
         </div>
@@ -21,7 +21,7 @@ const Login = (props) => {
         <img src={driveImg} alt='' />
         <div>
           <h2>Inicia sesión como conductor</h2>
-          <Link to='login-drivers'>
+          <Link to='login-driver'>
             <p>Haz click aquí</p>
           </Link>
         </div>

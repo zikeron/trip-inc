@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import twitterLogo from '../assets/static/twitter-icon.png';
-import googleLogo from '../assets/static/google-icon.png';
+import twitterLogo from '../assets/static/twitter-color.png';
+import googleLogo from '../assets/static/google-color.png';
+import '../assets/styles/components/LoginUser.scss';
 
 const Login = (props) => {
   return (
@@ -27,6 +28,7 @@ const Login = (props) => {
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label>
               <input type='checkbox' id='cbox1' value='first_checkbox' />
+              {'  '}
               Recuérdame
             </label>
             <a href='/'>Olvidé mi contraseña</a>
