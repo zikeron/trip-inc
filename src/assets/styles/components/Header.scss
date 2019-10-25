@@ -13,12 +13,11 @@
   text-decoration: none;
 }
 
-
 .header__text {
-   font-size: 35px;
-   margin-left: 15px;
-   font-family: Zhi Mang Xing, cursive;
-   color: white;
+  font-size: 35px;
+  margin-left: 15px;
+  font-family: Zhi Mang Xing, cursive;
+  color: white;
   display: unset;
 }
 
@@ -68,7 +67,7 @@
   color: white;
 }
 
-.header__menu--profile a{
+.header__menu--profile a {
   color: white;
 }
 
@@ -77,4 +76,10 @@
   width: 40px;
   border-radius: 100%;
   object-fit: cover;
+}
+
+@media (max-width: 480px) {
+  .header > a > p {
+    display: none;
+  }
 }
