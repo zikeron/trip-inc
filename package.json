@@ -6,13 +6,18 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development"
+    "start": "webpack-dev-server --mode development",
+    "format": "prettier --write '{*.js,src/**/*.{js,jsx}}'",
+    "lint": "eslint src/"
   },
   "keywords": [
     "trip inc",
-    "recact"
+    "React",
+    "Webpack",
+    "Babel",
+    "JavaScript"
   ],
-  "author": "<ziker@live.com.mx>",
+  "author": "Alejandro Cortez <ziker@live.com.mx>",
   "license": "ISC",
   "eslintConfig": {
     "extends": "react-app"
@@ -33,6 +38,11 @@
     "@react-google-maps/api": "^1.7.7",
     "babel-eslint": "^10.0.3",
     "bootstrap": "^4.3.1",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.15.1",
     "firebase": "^7.2.1",
     "prop-types": "^15.7.2",
     "react": "^16.10.1",
@@ -41,8 +51,7 @@
     "react-router-dom": "^5.1.2",
     "react-springy-parallax": "^1.3.0",
     "reactstrap": "^8.0.1",
-    "redux": "^4.0.4",
-    "request-promise": "^4.2.4"
+    "redux": "^4.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
@@ -50,12 +59,6 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
-    "eslint": "^6.6.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.16.0",
-    "eslint-plugin-react-hooks": "^1.7.0",
     "file-loader": "^4.2.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
