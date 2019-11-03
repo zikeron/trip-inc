@@ -42,8 +42,11 @@ const Map = (props) => {
   };
 
   const onClick = () => {
-    if (map.origin !== '' && map.destination !== '') {
-      console.log(map);
+    const origin = document.getElementById('origin');
+    const destination = document.getElementById('destination');
+    if (map.origin !== '' && map.destination) {
+      map.origin = origin.value;
+      map.destination = destination.value;
     }
   };
 
@@ -67,6 +70,7 @@ const Map = (props) => {
                 name='origin'
                 id='origin'
                 placeholder='Ingresa el punto de partida'
+                onChange={handleInput}
                 onBlur={handleInput}
               />
             </Col>
@@ -90,6 +94,7 @@ const Map = (props) => {
               name='destination'
               id='destination'
               placeholder='¿A dónde vas?'
+              onChange={handleInput}
               onBlur={handleInput}
             />
           </Col>
@@ -108,6 +113,7 @@ const Map = (props) => {
         </Col>
         <Col sm={3}>
           <input type='text' name='destination' id='destination' value={map.price} />
+          MXN
         </Col>
         <Col sm={3}>
           <input type='text' name='destination' id='destination' value={map.duration} readOnly />
