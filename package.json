@@ -12,9 +12,12 @@
   },
   "keywords": [
     "trip inc",
-    "recact"
+    "React",
+    "Webpack",
+    "Babel",
+    "JavaScript"
   ],
-  "author": "<ziker@live.com.mx>",
+  "author": "Alejandro Cortez <ziker@live.com.mx>",
   "license": "ISC",
   "eslintConfig": {
     "extends": "react-app"
