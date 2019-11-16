@@ -1,0 +1,66 @@
+section {
+  color: #335166;
+  padding: 0 18px;
+  height: 100%;
+}
+
+.origin,
+.destination {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid #335166;
+  border-radius: 25px;
+  color: #335166;
+  font-family: 'Muli', sans-serif;
+  font-size: 16px;
+  height: 50px;
+  margin-bottom: 20px;
+  outline: none;
+  padding: 0 20px;
+  width: 95%;
+}
+
+.search {
+  background-color: #335166;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Muli', sans-serif;
+  height: 50px;
+  letter-spacing: 1px;
+  padding: 0 20px;
+  margin: 10px 0;
+  width: 20%;
+}
+
+.price {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid #335166;
+  border-radius: 25px;
+  color: #335166;
+  font-family: 'Muli', sans-serif;
+  font-size: 16px;
+  height: 50px;
+  margin-bottom: 20px;
+  outline: none;
+  padding: 0 20px;
+  width: 20%;
+}
+
+.duration {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid #335166;
+  border-radius: 25px;
+  color: #335166;
+  font-family: 'Muli', sans-serif;
+  font-size: 16px;
+  height: 50px;
+  margin-bottom: 20px;
+  outline: none;
+  padding: 0 20px;
+  width: 20%;
+}
+
+

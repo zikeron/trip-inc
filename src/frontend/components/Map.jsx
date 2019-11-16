@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import { DirectionsRenderer, DirectionsService, GoogleMap, LoadScript, StandaloneSearchBox } from '@react-google-maps/api';
-import { Button, Col, Form, FormGroup, Input } from 'reactstrap';
 import { googleMapsApiKey } from '../environment/environment';
+
+const labels = {
+  BUTTON_CONSULT: 'Consultar',
+  ESTIMATED_TIME: 'Tiempo estimado',
+  CURRENCY: 'MXN',
+};
 
 const Map = (props) => {
   const [map, setValues] = useState({
     origin: '',
     destination: '',
-    response: {},
+    response: null,
     duration: '',
     distance: '',
+    searchBox: null,
   });
 
   const rate = 8.31;
@@ -20,21 +26,17 @@ const Map = (props) => {
     minimumFractionDigits: 2,
   });
 
-  const handleInput = (event) => {
-    setValues({
-      ...map,
-      [event.target.name]: event.target.value,
-    });
-  };
-
   const directionsCallback = (response) => {
     if (response !== null) {
       if (response.status === 'OK') {
-        console.log(response);
-        map.response = response;
-        map.duration = response.routes[0].legs[0].duration.text;
-        map.distance = response.routes[0].legs[0].distance.value / 1000;
-        map.price = formatter.format(map.distance * rate);
+        setValues({
+          ...map,
+          response,
+          duration: response.routes[0].legs[0].duration.text,
+          distance: response.routes[0].legs[0].distance.value / 1000,
+          price: formatter.format(map.distance * rate),
+        });
+
       } else {
         console.log('response: ', response);
       }
@@ -42,11 +44,14 @@ const Map = (props) => {
   };
 
   const onClick = () => {
-    const origin = document.getElementById('origin');
-    const destination = document.getElementById('destination');
-    if (map.origin !== '' && map.destination) {
-      map.origin = origin.value;
-      map.destination = destination.value;
+    const origin = document.getElementById('origin').value;
+    const destination = document.getElementById('destination').value;
+    if (origin !== '' && destination !== '') {
+      setValues({
+        ...map,
+        origin,
+        destination,
+      });
     }
   };
 
@@ -57,69 +62,49 @@ const Map = (props) => {
       libraries={['places']}
     >
       <StandaloneSearchBox
-        onLoad={(ref) => map.searchBox = ref}
-        onPlacesChanged={
-          () => console.log('onPlacesChanged', map.searchBox.getPlaces())
-        }
+        onLoad={(ref) => setValues({
+          ...map,
+          searchBox: ref,
+        })}
+        onPlacesChanged={() => console.log('onPlacesChanged', map.searchBox.getPlaces())}
       >
-        <Form>
-          <FormGroup row>
-            <Col sm={12}>
-              <Input
-                type='text'
-                name='origin'
-                id='origin'
-                placeholder='Ingresa el punto de partida'
-                onChange={handleInput}
-                onBlur={handleInput}
-              />
-            </Col>
-          </FormGroup>
-        </Form>
+        <input
+          type='text'
+          name='origin'
+          id='origin'
+          className='origin'
+          placeholder='Ingresa el punto de partida'
+        />
       </StandaloneSearchBox>
       <StandaloneSearchBox
-        onLoad={
-          (ref) => {
-            map.searchBox = ref;
-          }
-        }
-        onPlacesChanged={
-          () => console.log('onPlacesChanged', map.searchBox.getPlaces())
-        }
+        onLoad={(ref) => setValues({
+          ...map,
+          searchBox: ref,
+        })}
+        onPlacesChanged={() => console.log('onPlacesChanged', map.searchBox.getPlaces())}
       >
-        <FormGroup row>
-          <Col sm={12}>
-            <Input
-              type='text'
-              name='destination'
-              id='destination'
-              placeholder='¿A dónde vas?'
-              onChange={handleInput}
-              onBlur={handleInput}
-            />
-          </Col>
-        </FormGroup>
+        <input
+          type='text'
+          name='destination'
+          id='destination'
+          className='destination'
+          placeholder='¿A dónde vas?'
+        />
       </StandaloneSearchBox>
-      <FormGroup row>
-        <Col sm={6}>
-          <Button
-            color='info'
-            size='lg'
-            block
-            onClick={onClick}
-          >
-            Consultar
-          </Button>
-        </Col>
-        <Col sm={3}>
-          <input type='text' name='destination' id='destination' value={map.price} />
-          MXN
-        </Col>
-        <Col sm={3}>
-          <input type='text' name='destination' id='destination' value={map.duration} readOnly />
-          Tiempo estimado
-        </Col>
-      </FormGroup>
+      <button
+        type='button'
+        color='info'
+        className='search'
+        size='lg'
+        block
+        onClick={onClick}
+      >
+        {labels.BUTTON_CONSULT}
+      </button>
+      <input type='text' name='price' id='price' className='price' value={map.price} readOnly />
+      {labels.CURRENCY}
+      <input type='text' name='duration' id='duration' className='duration' value={map.duration} readOnly />
+      {labels.ESTIMATED_TIME}
       <GoogleMap
         id='example-map'
         mapContainerStyle={{
@@ -180,7 +165,7 @@ const Map = (props) => {
       </GoogleMap>
     </LoadScript>
   );
-
 };
 
 export default Map;
+

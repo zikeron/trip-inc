@@ -1,13 +1,9 @@
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'SET_NAME':
-      return {
-        ...state,
-        name: action.payload,
-      };
-    default:
-      return state;
-  }
-};
+export const setName = (payload) => ({
+  type: 'SET_NAME',
+  payload,
+});
 
-export default reducer;
+export const getFavorite = (payload) => ({
+  type: 'SET_NAME',
+  payload,
+});

@@ -79,7 +79,16 @@ module.exports = {
             loader: MiniCssExtractPlugin.loader,
           },
           'css-loader',
-          'sass-loader',
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              prependData: `
+              @import "${ path.resolve(__dirname, 'src/frontend/assets/styles/Vars.scss') }";
+              @import "${ path.resolve(__dirname, 'src/frontend/assets/styles/Media.scss') }";
+              `,
+            }
+          },
         ],
       },
       {
@@ -110,11 +119,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: isProd ? 'assets/app-[hash].css' : 'assets/app.css',
     }),
-    isProd ? new CompressionPlugin({
-      test: /\.js$|\.css$/,
-      filename: '[path].gz',
-    }) : false,
-    isProd ? new ManifestPlugin() : false,
   ],
 };
 
