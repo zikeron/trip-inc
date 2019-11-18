@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import Parallax from 'react-springy-parallax';
-import parallax1 from '../assets/static/asia-2181888_1920.jpg';
-import parallax2 from '../assets/static/navigation-1048294_1920.jpg';
-import parallax3 from '../assets/static/city-3126072_1920.jpg';
+import parallax1 from '../assets/static/conductorpng.png';
+import parallax2 from '../assets/static/Girl-1080x540.jpg';
+import parallax3 from '../assets/static/TripInc-passengers.jpg';
 
 class Home extends Component {
   render() {
     const styles = {
       fontFamily: 'Menlo-Regular, Menlo, monospace',
-      fontSize: 14,
-      lineHeight: '10px',
+      fontSize: 48,
+      lineHeight: '100px',
       color: 'white',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+      textAlign: 'center'
     };
     return (
       <Parallax ref='parallax' pages={3}>
@@ -23,6 +24,9 @@ class Home extends Component {
           style={
             {
               backgroundImage: `url(${parallax1})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              height: '793px'
             }
           } />
         <Parallax.Layer
@@ -30,7 +34,10 @@ class Home extends Component {
           speed={1}
           style={
             {
-              backgroundImage: `url(${parallax2})`
+              backgroundImage: `url(${parallax2})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              height: '793px'
             }
           } />
         <Parallax.Layer
@@ -38,7 +45,10 @@ class Home extends Component {
           speed={1}
           style={
             {
-              backgroundImage: `url(${parallax3})`
+              backgroundImage: `url(${parallax3})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              height: '793px'
             }
           }/>
         <Parallax.Layer
@@ -47,7 +57,7 @@ class Home extends Component {
           style={styles}
           onClick={() => this.refs.parallax.scrollTo(1)}
         >
-          Click!
+          ¡Disfruta de un viaje seguro en manos de nuestros conductores profesionales!
         </Parallax.Layer>
         <Parallax.Layer
           offset={1}
@@ -55,7 +65,7 @@ class Home extends Component {
           style={styles}
           onClick={() => this.refs.parallax.scrollTo(2)}
         >
-          Another page ...
+          Nos preocupamos por el medio ambiente, es por eso que nuestros autos son eléctricos, contribuyendo a bajar las emisiónes de carbono en el planeta
         </Parallax.Layer>
         <Parallax.Layer
           offset={2}
@@ -63,7 +73,7 @@ class Home extends Component {
           style={styles}
           onClick={() => this.refs.parallax.scrollTo(0)}
         >
-          The end.
+          Todos nuestros conductores pasan por un proceso de reclutamiento el cual garantiza tu seguridad y tranquilidad.
         </Parallax.Layer>
       </Parallax>
     );
