@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { DirectionsRenderer, DirectionsService, GoogleMap, LoadScript, StandaloneSearchBox } from '@react-google-maps/api';
 import { googleMapsApiKey } from '../environment/environment';
+import DriverCard from '../containers/DriverCard';
 
 const labels = {
   BUTTON_CONSULT: 'Consultar',
-  ESTIMATED_TIME: 'Tiempo estimado',
-  CURRENCY: 'MXN',
+  BUTTON_CONFIRM_TRIP: 'Confirma viaje',
+  ESTIMATED_TIME: 'Tiempo estimado:',
+  CURRENCY: 'Costo:',
 };
 
 const Map = (props) => {
@@ -16,6 +18,14 @@ const Map = (props) => {
     duration: '',
     distance: '',
     searchBox: null,
+    driverAssigned: {
+      name: 'Jóse',
+      category: 'Pro Diamante',
+      rating: 4.96,
+      experience: '1',
+      lat: '',
+      lng: '',
+    },
   });
 
   const rate = 8.31;
@@ -61,50 +71,71 @@ const Map = (props) => {
       googleMapsApiKey={googleMapsApiKey}
       libraries={['places']}
     >
-      <StandaloneSearchBox
-        onLoad={(ref) => setValues({
-          ...map,
-          searchBox: ref,
-        })}
-        onPlacesChanged={() => console.log('onPlacesChanged', map.searchBox.getPlaces())}
-      >
-        <input
-          type='text'
-          name='origin'
-          id='origin'
-          className='origin'
-          placeholder='Ingresa el punto de partida'
-        />
-      </StandaloneSearchBox>
-      <StandaloneSearchBox
-        onLoad={(ref) => setValues({
-          ...map,
-          searchBox: ref,
-        })}
-        onPlacesChanged={() => console.log('onPlacesChanged', map.searchBox.getPlaces())}
-      >
-        <input
-          type='text'
-          name='destination'
-          id='destination'
-          className='destination'
-          placeholder='¿A dónde vas?'
-        />
-      </StandaloneSearchBox>
-      <button
-        type='button'
-        color='info'
-        className='search'
-        size='lg'
-        block
-        onClick={onClick}
-      >
-        {labels.BUTTON_CONSULT}
-      </button>
-      <input type='text' name='price' id='price' className='price' value={map.price} readOnly />
-      {labels.CURRENCY}
-      <input type='text' name='duration' id='duration' className='duration' value={map.duration} readOnly />
-      {labels.ESTIMATED_TIME}
+      <section className='container-main'>
+        <StandaloneSearchBox
+          onLoad={(ref) => setValues({
+            ...map,
+            searchBox: ref,
+          })}
+          onPlacesChanged={() => console.log('onPlacesChanged', map.searchBox.getPlaces())}
+        >
+          <input
+            type='text'
+            name='origin'
+            id='origin'
+            className='origin'
+            placeholder='Ingresa el punto de partida'
+          />
+        </StandaloneSearchBox>
+        <StandaloneSearchBox
+          onLoad={(ref) => setValues({
+            ...map,
+            searchBox: ref,
+          })}
+          onPlacesChanged={() => console.log('onPlacesChanged', map.searchBox.getPlaces())}
+        >
+          <input
+            type='text'
+            name='destination'
+            id='destination'
+            className='destination'
+            placeholder='¿A dónde vas?'
+          />
+        </StandaloneSearchBox>
+        <div className='container-trip-information'>
+          <div>
+            <label htmlFor='price'>{labels.CURRENCY}</label>
+            <input type='text' name='price' id='price' className='price' value={map.price} readOnly />
+          </div>
+          <div>
+            <label htmlFor='duration'>{labels.ESTIMATED_TIME}</label>
+            <input type='text' name='duration' id='duration' className='duration' value={map.duration} readOnly />
+          </div>
+        </div>
+        <div className='container-buttons'>
+          <div>
+            <button
+              type='button'
+              className='search'
+              onClick={onClick}
+            >
+              {labels.BUTTON_CONSULT}
+            </button>
+          </div>
+          <div>
+            <button
+              type='button'
+              className='search'
+            >
+              {labels.BUTTON_CONFIRM_TRIP}
+            </button>
+          </div>
+        </div>
+      </section>
+      {
+        (map.driverAssigned !== null) &&
+        <DriverCard />
+      }
       <GoogleMap
         id='example-map'
         mapContainerStyle={{

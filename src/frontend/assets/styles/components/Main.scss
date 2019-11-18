@@ -16,7 +16,46 @@ section {
   margin-bottom: 20px;
   outline: none;
   padding: 0 20px;
-  width: 95%;
+  width: 96%;
+}
+
+.container-main {
+
+}
+
+.container-trip-information {
+  display: flex;
+  justify-items: center;
+  width: 100%
+}
+
+.container-trip-information > div {
+  width: 50%;
+}
+
+.container-trip-information > div > label {
+  display: block;
+  margin: 0 20px
+}
+
+.container-trip-information > div > input {
+  display: block;
+  width: 93%
+}
+
+.container-buttons {
+  display: flex;
+  justify-items: center;
+  flex-wrap: wrap;
+  width: 100%
+}
+
+.container-buttons > div {
+  width: 50%;
+}
+
+.container-buttons > div > button {
+  width: 99%
 }
 
 .search {
@@ -63,4 +102,37 @@ section {
   width: 20%;
 }
 
+.container-driver-card {
+  border: 2px solid;
+  border-radius: 40px;
+  display: flex;
+  margin: 20px 0;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.card {
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+  min-height: 300px;
+}
+
+.img {
+  border-radius: 50%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.details-container {
+  flex: 2;
+  width: 500px;
+}
+
+.avatar-container {
+  flex-basis: 250px;
+}
 
