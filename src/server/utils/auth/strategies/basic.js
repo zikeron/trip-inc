@@ -8,8 +8,6 @@ passport.use(
   // eslint-disable-next-line consistent-return
   new BasicStrategy((async (email, password, cb) => {
     try {
-      console.log('email', email);
-      console.log('password', password);
       const { data, status } = await axios({
         url: `${config.apiUrl}/api/auth/sign-in`,
         method: 'post',

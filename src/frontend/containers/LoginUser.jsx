@@ -21,7 +21,6 @@ const Login = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     props.loginUser(form, '/main');
-    console.log(form);
   };
 
   return (

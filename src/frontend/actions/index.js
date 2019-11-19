@@ -37,14 +37,14 @@ export const loginUser = ({ email, password }, redirectUrl) => {
       },
     })
       .then(({ data }) => {
-        document.cookie = `email=${data.email}`;
-        document.cookie = `email=${data.name}`;
-        document.cookie = `email=${data.id}`;
-        dispatch(loginRequest(data.email));
+        document.cookie = `email=${data.user.email}`;
+        document.cookie = `name=${data.user.name}`;
+        document.cookie = `id=${data.user.id}`;
+        dispatch(loginRequest(data.user));
       })
       .then(() => {
         window.location.href = redirectUrl;
       })
-      .catch((err) => dispatch(setError(err)));
+      .catch((err) => { console.log(err); });
   };
 };
