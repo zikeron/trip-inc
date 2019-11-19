@@ -1,18 +1,26 @@
 import React from 'react';
-import { render } from 'react-dom';
+import { hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
-import { compose, createStore } from 'redux';
+import { compose, createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { Router } from 'react-router';
+import { createBrowserHistory } from 'history';
 import reducer from './reducers/index';
-import { initialState } from './environment/environment';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const app = document.getElementById('app');
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducer, initialState, composeEnhancer());
+if (typeof window !== 'undefined') {
+  const app = document.getElementById('app');
+  const history = createBrowserHistory();
+  const preloadedState = window.__PRELOADED_STATE__;
+  const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  const store = createStore(reducer, preloadedState, composeEnhancer(applyMiddleware(thunk)));
 
-render(
-  <Provider store={store}>
-    <App />
-  </Provider>, app,
-);
+  hydrate(
+    <Provider store={store}>
+      <Router history={history}>
+        <App isLogged={(preloadedState.user.id)} />
+      </Router>
+    </Provider>, app,
+  );
+}

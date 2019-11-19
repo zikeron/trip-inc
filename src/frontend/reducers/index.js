@@ -1,8 +1,11 @@
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'SET_NAME':
+    case 'LOGIN_REQUEST':
+    case 'LOGOUT_REQUEST':
+    case 'REGISTER_REQUEST':
       return {
         ...state,
+        user: action.payload,
       };
     default:
       return state;
