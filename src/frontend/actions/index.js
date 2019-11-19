@@ -1,12 +1,17 @@
 import axios from 'axios';
 
+export const loginRequest = (payload) => ({
+  type: 'LOGIN_REQUEST',
+  payload,
+});
+
 export const registerRequest = (payload) => ({
   type: 'REGISTER_REQUEST',
   payload,
 });
 
 export const setError = (payload) => ({
-  type: 'SET_ERROT',
+  type: 'SET_ERROR',
   payload,
 });
 

@@ -77,7 +77,6 @@ app.post('/auth/sign-in', async (req, res, next) => {
 
 app.post('/auth/sign-up', async (req, res, next) => {
   const { body: user } = req;
-  console.log("user", user);
   try {
     await axios({
       url: `${config.apiUrl}/api/auth/sign-up`,
