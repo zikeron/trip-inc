@@ -1,7 +1,13 @@
 import getManifest from '../getManifest';
 
-const files = getManifest();
+require('dotenv').config();
+
+let files;
 const isProd = process.env.NODE_ENV === 'production';
+
+if (isProd) {
+  files = getManifest();
+}
 
 const render = (html, preloadedState) => {
   return (`
@@ -10,7 +16,7 @@ const render = (html, preloadedState) => {
         <head>
             <meta charset="UTF-8">
             <title>Trip Inc</title>
-            <link rel="stylesheet" href="${isProd ? files['main.css'] : 'assets/app.css'}" type="text/css">
+            <link rel="stylesheet" type="text/css" href="${isProd ? files['main.css'] : 'assets/app.css'}" />
             <link rel="shortcut icon" href="${isProd ? files['assets/HojaT.png'] : 'assets/1977e35ccbb72bb5c6c281c708ac5fd4.png'}" />
             <style>
             body {
@@ -30,8 +36,8 @@ const render = (html, preloadedState) => {
       '\\u003c',
     )}
         </script>
-            <script src="${isProd ? files['main.js'] : 'assets/app.js'}" type="text/javascript"></script>
-            <script src="${isProd ? files['vendors.js'] : 'assets/vendor.js'}" type="text/javascript"></script>
+            <script src="${isProd ? files['main.js'] : 'assets/app.js'}" type="javascript"></script>
+            <script src="${isProd ? files['vendors.js'] : 'assets/vendor.js'}" type="javascript"></script>
         </body>
         </html>
     `);

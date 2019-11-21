@@ -122,3 +122,14 @@ module.exports = {
   ],
 };
 
+
+if (isProd) {
+  module.exports.plugins.push(
+    new CompressionPlugin({
+      test: /\.js$|\.css$/,
+      filename: '[path].gz',
+    }),
+    new ManifestPlugin(),
+  );
+}
+

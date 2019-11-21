@@ -13,7 +13,6 @@ import render from '../render/render';
 const staticRoutes = (req, res, next) => {
   try {
     let initialState;
-    console.log(req.cookies, '<-----------------------------------req.cookies');
     try {
       const { email, name, id } = req.cookies || {};
       let user = {};
