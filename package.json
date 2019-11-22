@@ -37,6 +37,9 @@
   "dependencies": {
     "@babel/polyfill": "^7.7.0",
     "@babel/register": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/preset-react": "^7.0.0",
     "@hapi/boom": "^8.0.1",
     "@react-google-maps/api": "^1.7.7",
     "asset-require-hook": "^1.2.0",
@@ -73,12 +76,7 @@
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
     "terser-webpack-plugin": "^2.2.1",
-    "webpack-manifest-plugin": "^2.2.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.6.2",
-    "@babel/preset-env": "^7.6.2",
-    "@babel/preset-react": "^7.0.0",
+    "webpack-manifest-plugin": "^2.2.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
     "eslint-loader": "^3.0.2",
