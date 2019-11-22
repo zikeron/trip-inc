@@ -25,9 +25,11 @@ const Header = (props) => {
       </Link>
       <div className='header__menu'>
         <div className='header__menu--profile'>
-          <Link to='/register'>
-            <p>Registrate</p>
-          </Link>
+          { !hasUser ? (
+            <Link to='/register'>
+              <p>Registrate</p>
+            </Link>
+          ) : null}
         </div>
         <div className='header__menu--profile'>
           {
