@@ -30,7 +30,8 @@ section {
 }
 
 .container-trip-information > div {
-  width: 50%;
+  margin-right: 10px;
+  width: calc(50% - 5px);
 }
 
 .container-trip-information > div > label {
@@ -39,7 +40,7 @@ section {
 }
 
 .container-trip-information > div > input {
-  display: block;
+  box-sizing: border-box;
   width: 93%
 }
 
