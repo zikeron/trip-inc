@@ -15,6 +15,7 @@ const render = (html, preloadedState) => {
       <html lang="en">
         <head>
             <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
             <title>Trip Inc</title>
             <link rel="stylesheet" type="text/css" href="${isProd ? files['main.css'] : 'assets/app.css'}" />
             <link rel="shortcut icon" href="${isProd ? files['assets/HojaT.png'] : 'assets/1977e35ccbb72bb5c6c281c708ac5fd4.png'}" />
