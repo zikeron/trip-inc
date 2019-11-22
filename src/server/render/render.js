@@ -36,8 +36,8 @@ const render = (html, preloadedState) => {
       '\\u003c',
     )}
         </script>
-            <script src="${isProd ? files['main.js'] : 'assets/app.js'}" type="javascript"></script>
-            <script src="${isProd ? files['vendors.js'] : 'assets/vendor.js'}" type="javascript"></script>
+            <script src="${isProd ? files['main.js'] : 'assets/app.js'}" type="text/javascript"></script>
+            <script src="${isProd ? files['vendors.js'] : 'assets/vendor.js'}" type="text/javascript"></script>
         </body>
         </html>
     `);

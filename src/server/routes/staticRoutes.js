@@ -31,6 +31,7 @@ const staticRoutes = (req, res, next) => {
     } catch (err) {
       console.log(err);
     }
+    console.log(initialState, '<---------------------initialState')
     const isLogged = initialState.user.id;
     const store = createStore(reducer, initialState);
     const html = renderToString(
