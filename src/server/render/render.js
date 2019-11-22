@@ -23,6 +23,7 @@ const render = (html, preloadedState) => {
                 margin: 0;
                 background-image: linear-gradient(#eaeaea, #ecf4f3);
                 color: black;
+                font-family: 'Nunito', sans-serif;
               }
             </style>
         </head>

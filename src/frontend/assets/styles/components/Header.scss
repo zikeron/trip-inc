@@ -3,7 +3,7 @@
   background: #0da774;
   color: white;
   display: flex;
-  height: 100px;
+  height: 60px;
   justify-content: space-between;
   top: 0;
   width: 100%;
@@ -19,13 +19,14 @@
   font-family: Zhi Mang Xing, cursive;
   color: white;
   display: unset;
-  top: -20px;
+  top: -14px;
   position: relative;
 }
 
 .header__img {
   margin-left: 30px;
-  width: 70px;
+  margin-top: 16px;
+  width: 50px;
 }
 
 .header__menu {

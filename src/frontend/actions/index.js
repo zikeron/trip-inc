@@ -1,5 +1,10 @@
 import axios from 'axios';
 
+export const logoutRequest = (payload) => ({
+  type: 'LOGIN_REQUEST',
+  payload,
+});
+
 export const loginRequest = (payload) => ({
   type: 'LOGIN_REQUEST',
   payload,

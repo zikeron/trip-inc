@@ -1,10 +1,6 @@
 body {
   margin: 0;
-  background-image: linear-gradient(#eaeaea, #ecf4f3);
+  background-color: #eaeaea;
   color: black;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-  monospace;
+  font-family: 'Nunito', sans-serif;
 }

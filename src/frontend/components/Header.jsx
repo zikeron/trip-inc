@@ -1,9 +1,22 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../assets/styles/components/Header.scss';
 import logo from '../assets/static/HojaT.png';
+import { logoutRequest } from '../actions';
 
-const Header = () => {
+const Header = (props) => {
+  const { user } = props;
+  const hasUser = Object.keys(user).length > 0;
+
+  const handleLogout = () => {
+    props.logoutRequest({});
+    document.cookie = 'email=';
+    document.cookie = 'name=';
+    document.cookie = 'id=';
+    window.location.href = '/';
+  };
+
   return (
     <header className='header'>
       <Link to='/'>
@@ -17,13 +30,27 @@ const Header = () => {
           </Link>
         </div>
         <div className='header__menu--profile'>
-          <Link to='/login'>
-            <p>Inicia Sesión</p>
-          </Link>
+          {
+            hasUser ?
+              // eslint-disable-next-line jsx-a11y/anchor-is-valid
+              <a href='#' onClick={handleLogout}>Cerrar Sesión</a> : (
+                <Link to='/login'>
+                  <p>Inicia Sesión</p>
+                </Link>
+              )
+          }
         </div>
       </div>
     </header>
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => {
+  return { user: state.user };
+};
+
+const mapDispatchToProps = {
+  logoutRequest,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

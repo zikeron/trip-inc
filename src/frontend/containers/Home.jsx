@@ -7,6 +7,7 @@ import parallax3 from '../assets/static/TripInc-passengers.jpg';
 class Home extends Component {
   render() {
     const styles = {
+      background: 'rgba(0, 0, 0, 0.2)',
       fontFamily: 'Menlo-Regular, Menlo, monospace',
       fontSize: 48,
       lineHeight: '100px',
@@ -26,7 +27,7 @@ class Home extends Component {
               backgroundImage: `url(${parallax1})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-              height: '793px'
+              objectFit:'cover'
             }
           } />
         <Parallax.Layer
@@ -37,7 +38,7 @@ class Home extends Component {
               backgroundImage: `url(${parallax2})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-              height: '793px'
+              objectFit:'cover'
             }
           } />
         <Parallax.Layer
@@ -48,7 +49,7 @@ class Home extends Component {
               backgroundImage: `url(${parallax3})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-              height: '793px'
+              objectFit:'cover'
             }
           }/>
         <Parallax.Layer
