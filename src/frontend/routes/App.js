@@ -13,12 +13,12 @@ const App = ({ isLogged }) => (
   <BrowserRouter>
     <Layout>
       <Switch>
-        <Route exact path='/' component={Home} />
-        <Route exact path='/main' component={isLogged ? Main : Login} />
-        <Route exact path='/login' component={Login} />
-        <Route exact path='/login-user' component={LoginUser} />
-        <Route exact path='/login-driver' component={LoginDriver} />
-        <Route exact path='/register' component={Register} />
+        <Route exact path='/' component={isLogged ? Main : Home} />
+        <Route exact path='/main' component={isLogged ? Main : '/'} />
+        <Route exact path='/login' component={isLogged ? Main : Login} />
+        <Route exact path='/login-user' component={isLogged ? Main : LoginUser} />
+        <Route exact path='/login-driver' component={isLogged ? Main : LoginDriver} />
+        <Route exact path='/register' component={isLogged ? Main : Register} />
         <Route component={NotFound} />
       </Switch>
     </Layout>

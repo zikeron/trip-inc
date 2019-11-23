@@ -10,17 +10,17 @@ const serverRoutes = (isLogged) => {
   return [
     {
       path: '/',
-      component: Home,
+      component: isLogged ? Main : Home,
       exact: true,
     },
     {
       path: '/login',
-      component: Login,
+      component: isLogged ? Main : Login,
       exact: true,
     },
     {
       path: '/register',
-      component: Register,
+      component: isLogged ? Main : Register,
       exact: true,
     },
     {
@@ -29,17 +29,17 @@ const serverRoutes = (isLogged) => {
     },
     {
       path: '/main',
-      component: Main,
+      component: isLogged ? Main : '/',
       exact: true,
     },
     {
       path: '/login-user',
-      component: LoginUser,
+      component: isLogged ? Main : LoginUser,
       exact: true,
     },
     {
       path: '/login-driver',
-      component: LoginDriver,
+      component: isLogged ? Main : LoginDriver,
       exact: true,
     },
   ];

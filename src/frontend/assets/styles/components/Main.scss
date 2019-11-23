@@ -4,6 +4,10 @@ section {
   height: 100%;
 }
 
+.h1-title {
+  margin-left: 23px;
+}
+
 .origin,
 .destination {
   background-color: rgba(255, 255, 255, 0.1);
@@ -16,7 +20,8 @@ section {
   margin-bottom: 20px;
   outline: none;
   padding: 0 20px;
-  width: 96%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .container-main {
@@ -137,3 +142,16 @@ section {
   flex-basis: 250px;
 }
 
+@media (max-width: 768px) {
+  .container-buttons,
+  .container-trip-information {
+    flex-direction: column;
+  }
+  .container-trip-information > div {
+    margin-right: 0;
+    width: 100%;
+  }
+  .container-buttons>div {
+     width: 100%;
+  }
+}

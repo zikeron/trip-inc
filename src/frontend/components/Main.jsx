@@ -7,7 +7,7 @@ const Main = (props) => {
   const { user } = props;
   return (
     <section>
-      <h1>
+      <h1 className='h1-title'>
         Hola de nuevo
         {' '}
         {user.name}
