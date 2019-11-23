@@ -12,6 +12,11 @@ const reducer = (state, action) => {
         ...state,
         user: action.payload,
       };
+    case 'SET_DRIVER':
+      return {
+        ...state,
+        driver: action.payload,
+      };
     default:
       return state;
   }

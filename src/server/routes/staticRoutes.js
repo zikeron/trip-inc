@@ -26,6 +26,7 @@ const staticRoutes = (req, res, next) => {
 
       initialState = {
         user,
+        driver: {},
       };
 
     } catch (err) {

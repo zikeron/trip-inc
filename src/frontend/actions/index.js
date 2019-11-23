@@ -20,6 +20,11 @@ export const setError = (payload) => ({
   payload,
 });
 
+export const setDriver = (payload) => ({
+  type: 'SET_DRIVER',
+  payload,
+});
+
 export const registerUser = (payload, redirectUrl) => {
   return (dispatch) => {
     axios.post('/auth/sign-up', payload)

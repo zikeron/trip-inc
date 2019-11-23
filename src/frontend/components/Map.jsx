@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { DirectionsRenderer, DirectionsService, GoogleMap, LoadScript, StandaloneSearchBox } from '@react-google-maps/api';
 import { googleMapsApiKey } from '../environment/environment';
 import DriverCard from '../containers/DriverCard';
+import { setDriver } from '../actions';
 
 const labels = {
   BUTTON_CONSULT: 'Consultar',
@@ -18,15 +20,9 @@ const Map = (props) => {
     duration: '',
     distance: '',
     searchBox: null,
-    driverAssigned: {
-      name: 'Jóse',
-      category: 'Pro Diamante',
-      rating: 4.96,
-      experience: '1',
-      lat: '',
-      lng: '',
-    },
   });
+  const { driver } = props;
+  const hasDriver = Object.keys(driver).length > 0;
 
   const rate = 8.31;
 
@@ -63,6 +59,18 @@ const Map = (props) => {
         destination,
       });
     }
+  };
+
+  const onHandleConfirm = () => {
+    console.log('Set Driver');
+    props.setDriver({
+      name: 'Jóse',
+      category: 'Pro Diamante',
+      rating: 4.96,
+      experience: '1',
+      lat: '',
+      lng: '',
+    });
   };
 
   return (
@@ -126,6 +134,7 @@ const Map = (props) => {
             <button
               type='button'
               className='search'
+              onClick={onHandleConfirm}
             >
               {labels.BUTTON_CONFIRM_TRIP}
             </button>
@@ -133,7 +142,7 @@ const Map = (props) => {
         </div>
       </section>
       {
-        (map.driverAssigned !== null) &&
+        (hasDriver) &&
         <DriverCard />
       }
       <GoogleMap
@@ -198,5 +207,15 @@ const Map = (props) => {
   );
 };
 
-export default Map;
+const mapStateToProps = (state) => {
+  return {
+    driver: state.driver,
+  };
+};
+
+const mapDispatchToProps = {
+  setDriver,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Map);
 

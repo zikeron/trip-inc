@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "NODE_ENV=production webpack --mode production",
     "start": "node src/server/index.js",
     "start:prod": "node src/server/index.js",
     "start:dev": "nodemon src/server/index --exact babel-node"
