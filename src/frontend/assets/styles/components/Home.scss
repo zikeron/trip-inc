@@ -1,0 +1,17 @@
+.parallax {
+  background: rgba(0, 0, 0, 0.5);
+  font-family: 'Nunito', sans-serif;
+  font-size: 48px;
+  line-height: 100px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .parallax {
+    line-height: 60px;
+  }
+}

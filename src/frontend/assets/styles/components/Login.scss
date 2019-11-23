@@ -33,3 +33,10 @@
   font-weight: bolder ;
   text-decoration: underline;
 }
+
+
+@media (max-width: 425px) {
+  .container {
+    grid-template-columns: 200px 100px;
+  }
+}
