@@ -41,7 +41,7 @@
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
     "@hapi/boom": "^8.0.1",
-    "@react-google-maps/api": "^1.7.7",
+    "@react-google-maps/api": "^1.13.0",
     "asset-require-hook": "^1.2.0",
     "autoprefixer": "^9.7.1",
     "axios": "^0.19.0",
