@@ -38,7 +38,7 @@
     "@babel/polyfill": "^7.7.0",
     "@babel/register": "^7.6.2",
     "@babel/core": "^7.6.2",
-    "@babel/preset-env": "^7.6.2",
+    "@babel/preset-env": "^7.22.6",
     "@babel/preset-react": "^7.0.0",
     "@hapi/boom": "^8.0.1",
     "@react-google-maps/api": "^1.7.7",
@@ -86,7 +86,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
-    "@babel/preset-env": "^7.6.2",
+    "@babel/preset-env": "^7.22.6",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
